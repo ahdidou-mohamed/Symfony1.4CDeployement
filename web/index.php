@@ -1,5 +1,6 @@
 <?php
 
+echo "Hello There i am from GIT";
 
 require_once(dirname(__FILE__).'/../config/ProjectConfiguration.class.php');
 
