@@ -51,7 +51,7 @@ set :permission_method, :acl
 logger.level = Logger::MAX_LEVEL
 
 # Run migrations before warming the cache
-before "symfony:cache:warmup", "symfony:doctrine:build_all"
+after "symfony:cache:warmup", "symfony:doctrine:build_all"
  
 # Run migrations before warming the cache
 #before "symfony:cache:warmup", "symfony:doctrine:migrations:migrate"
