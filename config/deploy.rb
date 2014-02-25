@@ -50,6 +50,8 @@ set :permission_method, :acl
 # Uncomment this if you need more verbose output from Capifony
 logger.level = Logger::MAX_LEVEL
 
+# Run migrations before warming the cache
+before "symfony:cache:warmup", "symfony:doctrine:migrations:migrate"
  
 # Run migrations before warming the cache
 #before "symfony:cache:warmup", "symfony:doctrine:migrations:migrate"
