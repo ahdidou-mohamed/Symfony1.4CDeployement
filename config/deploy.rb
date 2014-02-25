@@ -29,6 +29,9 @@ set :shared_files,      ["config/databases.yml"] # This stops us from having to 
 set :shared_children,   ["log", web_path + "/uploads"]
 set :writable_dirs, ["cache",  "log"]
 
+set :interactive_mode, false
+
+
 
 set :use_composer, true
 set	:update_vendors, true
