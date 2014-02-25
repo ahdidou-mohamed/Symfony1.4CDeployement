@@ -5,6 +5,7 @@ JobeetCategory:
     name: { type: string(255), notnull: true, unique: true }
     description: { type: string(255), notnull: true, unique: true }
     image: { type: string(255), notnull: true, unique: true }
+    author: { type: string(255), notnull: true, unique: true }
  
 JobeetJob:
   actAs: { Timestampable: ~ }
