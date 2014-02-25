@@ -51,7 +51,18 @@ set :permission_method, :acl
 logger.level = Logger::MAX_LEVEL
 
 # Run migrations before warming the cache
-after "symfony:cache:warmup", "symfony:doctrine:build_all"
+#before "symfony:cache:warmup", "symfony:doctrine:migrations:migrate"
+
+desc "Runs the Symfony1 migrations"
+  task :migrate, :roles => :app, :except => { :no_release => true }, :only => { :primary => true } do
+    if model_manager == "doctrine"
+      symfony.doctrine.build_all
+    else
+      if model_manager == "propel"
+        puts " Propel doesn't have built-in migration for now".yellow
+      end
+    end
+  end
  
 # Run migrations before warming the cache
 #before "symfony:cache:warmup", "symfony:doctrine:migrations:migrate"
