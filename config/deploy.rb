@@ -49,6 +49,14 @@ set :permission_method, :acl
  
 # Uncomment this if you need more verbose output from Capifony
 logger.level = Logger::MAX_LEVEL
+
+
+desc 'MigrateDB'
+task :super_task do
+
+	run "cap symfony:doctrine:build_all"
+	
+end
  
 # Run migrations before warming the cache
 #before "symfony:cache:warmup", "symfony:doctrine:migrations:migrate"
