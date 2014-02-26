@@ -41,7 +41,7 @@
   </target>
 
   <target name="lint" description="Perform syntax check of sourcecode files">
-    <apply executable="php" failonerror="false">
+    <apply executable="php" failonerror="true">
     <arg value="-l" />
     <fileset dir="${sourcedir}">
       <include name="**/*.php" />
@@ -120,7 +120,7 @@
   </target>
 
   <target name="phpunit" description="Run unit tests with PHPUnit">
-    <exec executable="phpunit" failonerror="false">
+    <exec executable="phpunit" failonerror="true">
       <arg value="-c" />
       <arg path="${basedir}/app/phpunit.xml" />
     </exec>
@@ -138,14 +138,14 @@
   </target>
 
   <target name="vendors" description="Update vendors">
-    <exec executable="php" failonerror="false">
+    <exec executable="php" failonerror="true">
         <arg value="composer.phar" />
         <arg value="update" />
     </exec>
   </target>
 
   <target name="parameters" description="Copy parameters">
-    <exec executable="cp" failonerror="false">
+    <exec executable="cp" failonerror="true">
       <arg path="app/config/parameters.yml.dist" />
       <arg path="app/config/parameters.yml" />
     </exec>
